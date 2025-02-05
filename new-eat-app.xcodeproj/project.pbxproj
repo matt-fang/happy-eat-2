@@ -6,6 +6,20 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A51540692D53259F00BF3DEF /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A515405B2D53259F00BF3DEF /* CharacterView.swift */; };
+		A515406A2D53259F00BF3DEF /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A515405C2D53259F00BF3DEF /* Entry.swift */; };
+		A515406B2D53259F00BF3DEF /* FoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51540632D53259F00BF3DEF /* FoodView.swift */; };
+		A515406C2D53259F00BF3DEF /* FoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51540642D53259F00BF3DEF /* FoodViewModel.swift */; };
+		A515406D2D53259F00BF3DEF /* new_eat_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51540672D53259F00BF3DEF /* new_eat_appApp.swift */; };
+		A515406F2D53259F00BF3DEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A51540602D53259F00BF3DEF /* Assets.xcassets */; };
+		A51540722D5325F900BF3DEF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51540712D5325F700BF3DEF /* User.swift */; };
+		A51540772D5326B500BF3DEF /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51540762D5326B500BF3DEF /* Habit.swift */; };
+		A51540792D532C4200BF3DEF /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51540782D532C4200BF3DEF /* OnboardingView.swift */; };
+		A51540852D53387100BF3DEF /* Presets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51540822D53387100BF3DEF /* Presets.swift */; };
+		A51540862D53387100BF3DEF /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51540832D53387100BF3DEF /* UserViewModel.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		A500E6422D52D01E00EA51F7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,14 +41,21 @@
 		A500E6312D52D01C00EA51F7 /* new-eat-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "new-eat-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A500E6412D52D01E00EA51F7 /* new-eat-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "new-eat-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A500E64B2D52D01E00EA51F7 /* new-eat-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "new-eat-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A515405B2D53259F00BF3DEF /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
+		A515405C2D53259F00BF3DEF /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		A51540602D53259F00BF3DEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A51540612D53259F00BF3DEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A51540632D53259F00BF3DEF /* FoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodView.swift; sourceTree = "<group>"; };
+		A51540642D53259F00BF3DEF /* FoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewModel.swift; sourceTree = "<group>"; };
+		A51540672D53259F00BF3DEF /* new_eat_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = new_eat_appApp.swift; sourceTree = "<group>"; };
+		A51540712D5325F700BF3DEF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A51540762D5326B500BF3DEF /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
+		A51540782D532C4200BF3DEF /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		A51540822D53387100BF3DEF /* Presets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presets.swift; sourceTree = "<group>"; };
+		A51540832D53387100BF3DEF /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		A500E6332D52D01C00EA51F7 /* new-eat-app */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "new-eat-app";
-			sourceTree = "<group>";
-		};
 		A500E6442D52D01E00EA51F7 /* new-eat-appTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "new-eat-appTests";
@@ -43,6 +64,21 @@
 		A500E64E2D52D01E00EA51F7 /* new-eat-appUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "new-eat-appUITests";
+			sourceTree = "<group>";
+		};
+		A500E66A2D52E92F00EA51F7 /* Fonts */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		A51540502D531E6C00BF3DEF /* scrapyard */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = scrapyard;
+			sourceTree = "<group>";
+		};
+		A51540892D533BF800BF3DEF /* Preview Content */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,10 +111,12 @@
 		A500E6282D52D01C00EA51F7 = {
 			isa = PBXGroup;
 			children = (
-				A500E6332D52D01C00EA51F7 /* new-eat-app */,
+				A51540682D53259F00BF3DEF /* new-eat-app */,
 				A500E6442D52D01E00EA51F7 /* new-eat-appTests */,
 				A500E64E2D52D01E00EA51F7 /* new-eat-appUITests */,
 				A500E6322D52D01C00EA51F7 /* Products */,
+				A500E66A2D52E92F00EA51F7 /* Fonts */,
+				A51540502D531E6C00BF3DEF /* scrapyard */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,6 +128,82 @@
 				A500E64B2D52D01E00EA51F7 /* new-eat-appUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A515405D2D53259F00BF3DEF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A51540712D5325F700BF3DEF /* User.swift */,
+				A51540762D5326B500BF3DEF /* Habit.swift */,
+				A515405C2D53259F00BF3DEF /* Entry.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A51540622D53259F00BF3DEF /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A51540652D53259F00BF3DEF /* FoodView */ = {
+			isa = PBXGroup;
+			children = (
+				A51540632D53259F00BF3DEF /* FoodView.swift */,
+				A51540642D53259F00BF3DEF /* FoodViewModel.swift */,
+			);
+			path = FoodView;
+			sourceTree = "<group>";
+		};
+		A51540662D53259F00BF3DEF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A51540782D532C4200BF3DEF /* OnboardingView.swift */,
+				A51540732D53261700BF3DEF /* CharacterView */,
+				A51540652D53259F00BF3DEF /* FoodView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A51540682D53259F00BF3DEF /* new-eat-app */ = {
+			isa = PBXGroup;
+			children = (
+				A51540662D53259F00BF3DEF /* Views */,
+				A51540842D53387100BF3DEF /* ViewModels */,
+				A515405D2D53259F00BF3DEF /* Models */,
+				A51540872D53387C00BF3DEF /* Constants */,
+				A51540602D53259F00BF3DEF /* Assets.xcassets */,
+				A51540612D53259F00BF3DEF /* Info.plist */,
+				A51540622D53259F00BF3DEF /* Utilities */,
+				A51540672D53259F00BF3DEF /* new_eat_appApp.swift */,
+				A51540892D533BF800BF3DEF /* Preview Content */,
+			);
+			path = "new-eat-app";
+			sourceTree = "<group>";
+		};
+		A51540732D53261700BF3DEF /* CharacterView */ = {
+			isa = PBXGroup;
+			children = (
+				A515405B2D53259F00BF3DEF /* CharacterView.swift */,
+			);
+			path = CharacterView;
+			sourceTree = "<group>";
+		};
+		A51540842D53387100BF3DEF /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A51540832D53387100BF3DEF /* UserViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A51540872D53387C00BF3DEF /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				A51540822D53387100BF3DEF /* Presets.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -108,7 +222,9 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				A500E6332D52D01C00EA51F7 /* new-eat-app */,
+				A500E66A2D52E92F00EA51F7 /* Fonts */,
+				A51540502D531E6C00BF3DEF /* scrapyard */,
+				A51540892D533BF800BF3DEF /* Preview Content */,
 			);
 			name = "new-eat-app";
 			packageProductDependencies = (
@@ -212,6 +328,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A515406F2D53259F00BF3DEF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +353,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A51540772D5326B500BF3DEF /* Habit.swift in Sources */,
+				A51540692D53259F00BF3DEF /* CharacterView.swift in Sources */,
+				A515406A2D53259F00BF3DEF /* Entry.swift in Sources */,
+				A51540852D53387100BF3DEF /* Presets.swift in Sources */,
+				A51540862D53387100BF3DEF /* UserViewModel.swift in Sources */,
+				A51540792D532C4200BF3DEF /* OnboardingView.swift in Sources */,
+				A515406B2D53259F00BF3DEF /* FoodView.swift in Sources */,
+				A515406C2D53259F00BF3DEF /* FoodViewModel.swift in Sources */,
+				A515406D2D53259F00BF3DEF /* new_eat_appApp.swift in Sources */,
+				A51540722D5325F900BF3DEF /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +526,7 @@
 				DEVELOPMENT_TEAM = 459BVP2W33;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "new-eat-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -428,6 +556,7 @@
 				DEVELOPMENT_TEAM = 459BVP2W33;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "new-eat-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

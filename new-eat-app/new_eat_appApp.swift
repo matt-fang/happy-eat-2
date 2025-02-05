@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct new_eat_appApp: App {
+    @State var viewModel = UserViewModel()
+    @State private var isOnboarding = true
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if isOnboarding{
+                OnboardingView(viewModel: viewModel, isOnboarding: $isOnboarding)
+            } else {
+                FoodView(viewModel: viewModel)
+            }
         }
     }
 }
