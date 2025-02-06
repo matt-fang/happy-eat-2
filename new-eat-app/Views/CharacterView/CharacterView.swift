@@ -21,8 +21,10 @@ struct Character: View {
             .scaleEffect(isShown ? 1 : 0.5) // Shrinks while fading
             .animation(.spring(response: 0.4, dampingFraction: 0.6), value: isShown)
             .onTapGesture {
-                viewModel.incrementGoalCount()
-                isShown = false
+                if isShown {
+                    viewModel.incrementGoalCount()
+                    isShown = false
+                }
             }
     }
 }
