@@ -10,7 +10,7 @@ import SwiftUI
 struct Character: View {
     var named: String
     @State private var isShown: Bool = true
-    @Binding var completedGoalCount: Int
+    var viewModel: UserViewModel
     
     var body: some View {
         Image(named)
@@ -21,7 +21,7 @@ struct Character: View {
             .scaleEffect(isShown ? 1 : 0.5) // Shrinks while fading
             .animation(.spring(response: 0.4, dampingFraction: 0.6), value: isShown)
             .onTapGesture {
-                completedGoalCount += 1
+                viewModel.incrementGoalCount()
                 isShown = false
             }
     }
