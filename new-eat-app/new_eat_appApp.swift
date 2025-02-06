@@ -10,12 +10,12 @@ import SwiftUI
 @main
 struct new_eat_appApp: App {
     @State var viewModel = UserViewModel()
-    @State private var isOnboarding = true
+    @AppStorage("finishedOnboarding") private var finishedOnboarding: Bool = false
     
     var body: some Scene {
         WindowGroup {
-            if isOnboarding{
-                OnboardingView(viewModel: viewModel, isOnboarding: $isOnboarding)
+            if finishedOnboarding == false {
+                OnboardingView(viewModel: viewModel)
             } else {
                 FoodView(viewModel: viewModel)
             }
