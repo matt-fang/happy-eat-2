@@ -10,9 +10,21 @@ import Observation
 
 @Observable class UserViewModel {
     // MARK: ideally currentHabit is an optional — but that makes things complicated in FoodView so figure that out
-    var user = User(currentHabit: Presets.habits[0])
+    private(set) var user = User(currentHabit: Presets.habits[0])
     
-    func setHabit(habit: Int, totalGoalCount: Int, why: Int) {
-        user.currentHabit = Habit(name: Presets.habits[habit].name, totalGoalCount: totalGoalCount, why: Presets.whys[why])
+    func setHabit(habit: Int) {
+        user.currentHabit = Presets.habits[habit]
+    }
+
+    func setTotalGoalCount(totalGoalCount: Int) {
+        user.currentHabit.totalGoalCount = totalGoalCount
+    }
+
+    func setHabitWhy(why: Int) {
+        user.currentHabit.why = Presets.whys[why]
+    }
+    
+    func incrementGoalCount() {
+        user.currentHabit.completedGoalCount += 1
     }
 }
