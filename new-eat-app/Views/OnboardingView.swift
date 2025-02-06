@@ -9,71 +9,106 @@ import SwiftUI
 
 struct OnboardingView: View {
     @Bindable var viewModel: UserViewModel
-    @Binding var isOnboarding: Bool
     @State private var onboardingStep = 1
+    @AppStorage("finishedOnboarding") private var finishedOnboarding: Bool = false
     
-    // MARK: CAN YOU NOT HAVE TO INIT HERE LOL?? it only causes problems
-    @State private var habitIndex: Int = 0
-    @State private var totalGoalCount: Int = 0
-    @State private var whyIndex: Int = 0
+    // MARK: do these state variables need to exist at all? they cause some optional problems later down
+    @State private var habitIndex: Int?
+    @State private var totalGoalCount: Int?
+    @State private var whyIndex: Int?
     
     var body: some View {
         VStack {
             if onboardingStep == 1 {
                 Text("welcome!")
-                Button("Next") { onboardingStep += 1 }
+                nextButton
             } else if onboardingStep == 2 {
                 Text("this app helps you build habits")
-                Button("Next") { onboardingStep += 1 }
+                nextButton
             } else if onboardingStep == 3 {
-                Text("pick a habit!")
-                ScrollView {
-                    ForEach(0..<Presets.habits.count, id: \.self) { index in
-                        Button {
-                            habitIndex = index
-                        } label: {
-                            Text(Presets.habits[index].name)
-                                .padding()
-                                .frame(maxWidth: .infinity)
-                                .background(habitIndex == index ? Color.blue : Color.gray)
-                                .cornerRadius(10)
-                        }
-                    }
-                }
-                Button("Next") { onboardingStep += 1 }
+                pickHabit
             } else if onboardingStep == 4 {
-                Text("How many times per day?")
-                
-                // MARK: fix the stepper jump — consequence of needing to arbitrarily init everything at the top of this view (not ideal)
-                Stepper("\(totalGoalCount)", value: $totalGoalCount, in: 1...10)
-                Button("Next") { onboardingStep += 1 }
+                pickFrequency
             } else if onboardingStep == 5 {
-                Text("why do you want to do this habit?")
-                ScrollView {
-                    ForEach(0..<Presets.whys.count, id: \.self) { index in
-                        Button {
-                            whyIndex = index
-                        } label: {
-                            Text(Presets.whys[index])
-                                .padding()
-                                .frame(maxWidth: .infinity)
-                                .background(whyIndex == index ? Color.blue : Color.gray)
-                                .cornerRadius(10)
-                        }
-                    }
-                }
-                Button("Next") { onboardingStep += 1 }
+                pickWhy
             } else if onboardingStep == 6 {
                 Text("tap the fruits if you eat them")
-                Button("Next") { onboardingStep += 1 }
+                nextButton
             } else if onboardingStep == 7 {
                 Text("write down helpful stuff and find inspo in your toolbox!")
                 Button("Finish") {
-                    viewModel.setHabit(habit: habitIndex, totalGoalCount: totalGoalCount, why: whyIndex)
-                    print (viewModel.user.currentHabit.name, viewModel.user.currentHabit.totalGoalCount, viewModel.user.currentHabit.why)
-                    isOnboarding = false
+                    finishedOnboarding = true
+                    print(finishedOnboarding)
+                print ("\(viewModel.user.currentHabit.name), \(viewModel.user.currentHabit.totalGoalCount), \(viewModel.user.currentHabit.why ?? "No reason")")
                 }
             }
+        }
+    }
+    
+    var nextButton: some View {
+        Button("Next") { onboardingStep += 1 }
+    }
+    
+    var pickHabit: some View {
+        VStack {
+            Text("pick a habit!")
+            ScrollView {
+                ForEach(0..<Presets.habits.count, id: \.self) { index in
+                    Button {
+                        habitIndex = index
+                    } label: {
+                        Text(Presets.habits[index].name)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(habitIndex == index ? Color.blue : Color.gray)
+                            .cornerRadius(10)
+                    }
+                }
+            }
+            nextButton
+        }.onDisappear {
+            // MARK: prevent the screen from disappearing if habit doesn't exist!! don't just default to 3 lmao
+            // MARK: IS FORCE UNWRAPPPING OK HERE?
+            viewModel.setHabit(habit: habitIndex!)
+            totalGoalCount = viewModel.user.currentHabit.totalGoalCount
+        }
+    }
+    
+    var pickFrequency: some View {
+        VStack {
+            Text("How many times per day?")
+            
+            // MARK: what is happening here lol — understand
+            Stepper("\(totalGoalCount ?? 3)", value: Binding(
+                get: { totalGoalCount ?? 1 },
+                set: { totalGoalCount = $0 }
+            ), in: 1...5)
+            nextButton
+        }.onDisappear {
+            viewModel.setTotalGoalCount(totalGoalCount: totalGoalCount!)
+        }
+    }
+    
+    var pickWhy: some View {
+        VStack {
+            Text("why do you want to do this habit?")
+            ScrollView {
+                ForEach(0..<Presets.whys.count, id: \.self) { index in
+                    Button {
+                        whyIndex = index
+                    } label: {
+                        Text(Presets.whys[index])
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(whyIndex == index ? Color.blue : Color.gray)
+                            .cornerRadius(10)
+                    }
+                }
+            }
+            nextButton
+        }.onDisappear {
+            // MARK: is this optional handling ideal?
+            viewModel.setHabitWhy(why: whyIndex ?? 0)
         }
     }
 }
