@@ -22,7 +22,7 @@ struct FoodView: View {
                 LazyVGrid(columns: [GridItem(), GridItem()]) {
                     ForEach(0..<viewModel.user.currentHabit.totalGoalCount) { _ in
                         // MARK: FIND A WAY TO UPDATE DAILY HABIT PROGRESS WITHOUT THE BINDING CHAOS LOL (or at least understand the chaos if you use binding)
-                        Character(named: "orangeguy", completedGoalCount: $viewModel.user.currentHabit.completedGoalCount)
+                        Character(named: "orangeguy", viewModel: viewModel)
                     }
                 }.padding(.bottom, 10)
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
