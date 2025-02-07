@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A51540692D53259F00BF3DEF /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A515405B2D53259F00BF3DEF /* CharacterView.swift */; };
+		A51540692D53259F00BF3DEF /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = A515405B2D53259F00BF3DEF /* Character.swift */; };
 		A515406A2D53259F00BF3DEF /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A515405C2D53259F00BF3DEF /* Entry.swift */; };
 		A515406B2D53259F00BF3DEF /* FoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51540632D53259F00BF3DEF /* FoodView.swift */; };
 		A515406C2D53259F00BF3DEF /* FoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51540642D53259F00BF3DEF /* FoodViewModel.swift */; };
@@ -18,6 +18,7 @@
 		A51540792D532C4200BF3DEF /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51540782D532C4200BF3DEF /* OnboardingView.swift */; };
 		A51540852D53387100BF3DEF /* Presets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51540822D53387100BF3DEF /* Presets.swift */; };
 		A51540862D53387100BF3DEF /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51540832D53387100BF3DEF /* UserViewModel.swift */; };
+		A59B591C2D55D5E30054A8FC /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B591B2D55D5E30054A8FC /* CharacterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +42,7 @@
 		A500E6312D52D01C00EA51F7 /* new-eat-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "new-eat-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A500E6412D52D01E00EA51F7 /* new-eat-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "new-eat-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A500E64B2D52D01E00EA51F7 /* new-eat-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "new-eat-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A515405B2D53259F00BF3DEF /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
+		A515405B2D53259F00BF3DEF /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		A515405C2D53259F00BF3DEF /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		A51540602D53259F00BF3DEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A51540612D53259F00BF3DEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -53,6 +54,7 @@
 		A51540782D532C4200BF3DEF /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		A51540822D53387100BF3DEF /* Presets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presets.swift; sourceTree = "<group>"; };
 		A51540832D53387100BF3DEF /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		A59B591B2D55D5E30054A8FC /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -136,6 +138,7 @@
 				A51540712D5325F700BF3DEF /* User.swift */,
 				A51540762D5326B500BF3DEF /* Habit.swift */,
 				A515405C2D53259F00BF3DEF /* Entry.swift */,
+				A515405B2D53259F00BF3DEF /* Character.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -150,9 +153,9 @@
 		A51540662D53259F00BF3DEF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A515405B2D53259F00BF3DEF /* CharacterView.swift */,
-				A51540782D532C4200BF3DEF /* OnboardingView.swift */,
 				A51540632D53259F00BF3DEF /* FoodView.swift */,
+				A51540782D532C4200BF3DEF /* OnboardingView.swift */,
+				A59B591B2D55D5E30054A8FC /* CharacterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -338,10 +341,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A51540772D5326B500BF3DEF /* Habit.swift in Sources */,
-				A51540692D53259F00BF3DEF /* CharacterView.swift in Sources */,
+				A51540692D53259F00BF3DEF /* Character.swift in Sources */,
 				A515406A2D53259F00BF3DEF /* Entry.swift in Sources */,
 				A51540852D53387100BF3DEF /* Presets.swift in Sources */,
 				A51540862D53387100BF3DEF /* UserViewModel.swift in Sources */,
+				A59B591C2D55D5E30054A8FC /* CharacterView.swift in Sources */,
 				A51540792D532C4200BF3DEF /* OnboardingView.swift in Sources */,
 				A515406B2D53259F00BF3DEF /* FoodView.swift in Sources */,
 				A515406C2D53259F00BF3DEF /* FoodViewModel.swift in Sources */,

@@ -1,36 +1,32 @@
 //
-//  Character.swift
+//  CharacterView.swift
 //  new-eat-app
 //
-//  Created by Matthew Fang on 2/4/25.
+//  Created by Matthew Fang on 2/6/25.
 //
-import Foundation
+
 import SwiftUI
 
-struct Character: View {
-    var named: String
-    @State private var isShown: Bool = true
-    @AppStorage("currentDay") private var currentDay: Int = 1
-    @AppStorage("lastDate") private var lastDate: Double = 0
+struct CharacterView: View {
+    @Binding var lastDate: Double
+    @Binding var character: Character
     var viewModel: UserViewModel
     
     var body: some View {
-        Image(named)
+        Image(character.named)
             .resizable()
             .aspectRatio(contentMode: .fit)
             .padding(-5)
-            .opacity(isShown ? 1 : 0)
-            .scaleEffect(isShown ? 1 : 0.5) // Shrinks while fading
-            .animation(.spring(response: 0.4, dampingFraction: 0.6), value: isShown)
+            .opacity(character.isShown ? 1 : 0)
+            .scaleEffect(character.isShown ? 1 : 0.5) // Shrinks while fading
+            .animation(.spring(response: 0.4, dampingFraction: 0.6), value: character.isShown)
             .onTapGesture {
-                if isShown {
+                if character.isShown {
                     viewModel.incrementGoalCount()
-                    isShown = false
-                    if viewModel.user.currentHabit.completedGoalCount == viewModel.user.currentHabit.totalGoalCount {
-                        lastDate = Date().timeIntervalSince1970
-                        viewModel.incrementDayCount()
+                    viewModel.incrementDayCount()
+                    character.isShown = false
+                    lastDate = Date().timeIntervalSince1970
                     }
                 }
             }
     }
-}

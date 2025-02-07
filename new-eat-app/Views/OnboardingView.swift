@@ -86,6 +86,8 @@ struct OnboardingView: View {
             nextButton
         }.onDisappear {
             viewModel.setTotalGoalCount(totalGoalCount: totalGoalCount!)
+            viewModel.characterFactory(count: totalGoalCount!, viewModel: viewModel)
+            print(viewModel.user.currentCharacters)
         }
     }
     
