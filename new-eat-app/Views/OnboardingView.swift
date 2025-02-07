@@ -20,11 +20,9 @@ struct OnboardingView: View {
     var body: some View {
         VStack {
             if onboardingStep == 1 {
-                Text("welcome!")
-                nextButton
+                welcome
             } else if onboardingStep == 2 {
-                Text("this app helps you build habits")
-                nextButton
+                about
             } else if onboardingStep == 3 {
                 pickHabit
             } else if onboardingStep == 4 {
@@ -46,32 +44,95 @@ struct OnboardingView: View {
     }
     
     var nextButton: some View {
-        Button("Next") { onboardingStep += 1 }
+        Button{
+            onboardingStep += 1
+        } label: {
+            Text("Next")
+                .font(.button)
+                .foregroundColor(.white)
+                .frame(maxWidth: 180)
+                .padding(.vertical, 16)
+                .background(Color.blue)
+                .clipShape(RoundedRectangle(cornerRadius: 32))
+        }
+    }
+    
+    var welcome: some View {
+        VStack {
+            Spacer()
+            Text("Hey there! \n \n Welcome to Happy Eat.")
+                .font(.title2)
+                .multilineTextAlignment(.center)
+                .padding()
+            Spacer()
+            nextButton
+                .padding(.bottom, 40)
+        }.frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background {
+                Color.yellow
+                    .ignoresSafeArea()
+            }
+    }
+    
+    var about: some View {
+        VStack {
+            Spacer()
+            Text("This is a different kind of nutrition app, \n \n one that values sustainability over quick fixes, \n \n and how you feel over what you eat.")
+                .font(.title2)
+                .multilineTextAlignment(.center)
+                .padding()
+
+            Spacer()
+            nextButton
+                .padding(.bottom, 40)
+        }.frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background {
+                Color.yellow
+                    .ignoresSafeArea()
+            }
     }
     
     var pickHabit: some View {
-        VStack {
-            Text("pick a habit!")
-            ScrollView {
-                ForEach(0..<Presets.habits.count, id: \.self) { index in
-                    Button {
-                        habitIndex = index
-                    } label: {
-                        Text(Presets.habits[index].name)
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(habitIndex == index ? Color.blue : Color.gray)
-                            .cornerRadius(10)
+        
+        VStack(alignment: .center, spacing: 24) {
+            VStack(alignment: .center, spacing: 16) {
+                Text("We're all about building\nhabits here, since habits\nare what stick with you!")
+                    .font(.title2)
+                    .multilineTextAlignment(.center)
+                
+                Text("Choose one habit you want to form:")
+                    .font(.body)
+                    .multilineTextAlignment(.center)
+            }
+            .padding(.horizontal)
+            .padding(.top, 30)
+            
+            VStack(alignment: .center, spacing: 12) {
+                ScrollView {
+                    ForEach(0..<Presets.habits.count, id: \.self) { index in
+                        Button {
+                            habitIndex = index
+                        } label: {
+                            CardView(content: Presets.habits[index].name, isSelected: habitIndex == index)
+                        }
                     }
                 }
-            }
-            nextButton
+            }.padding()
+            Spacer()
+            
+            nextButton.padding(.bottom, 30)
+            
+            
         }.onDisappear {
             // MARK: prevent the screen from disappearing if habit doesn't exist!! don't just default to 3 lmao
             // MARK: IS FORCE UNWRAPPPING OK HERE?
             viewModel.setHabit(habit: habitIndex!)
             totalGoalCount = viewModel.user.currentHabit.totalGoalCount
-        }
+        }.frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background {
+                Color.yellow
+                    .ignoresSafeArea()
+            }
     }
     
     var pickFrequency: some View {
