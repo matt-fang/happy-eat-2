@@ -13,8 +13,6 @@ struct Presets {
         Habit(name: "Eat more whole foods", totalGoalCount: 4),
         Habit(name: "Eat without distraction", totalGoalCount: 3),
         Habit(name: "Eat meals on time", totalGoalCount: 3),
-        Habit(name: "Mindfully savor food", totalGoalCount: 3),
-        Habit(name: "Eat without guilt", totalGoalCount: 3),
         Habit(name: "Cook my own food!", totalGoalCount: 1)
     ]
 
