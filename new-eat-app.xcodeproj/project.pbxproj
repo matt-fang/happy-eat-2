@@ -147,21 +147,12 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		A51540652D53259F00BF3DEF /* FoodView */ = {
-			isa = PBXGroup;
-			children = (
-				A51540632D53259F00BF3DEF /* FoodView.swift */,
-				A51540642D53259F00BF3DEF /* FoodViewModel.swift */,
-			);
-			path = FoodView;
-			sourceTree = "<group>";
-		};
 		A51540662D53259F00BF3DEF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A515405B2D53259F00BF3DEF /* CharacterView.swift */,
 				A51540782D532C4200BF3DEF /* OnboardingView.swift */,
-				A51540732D53261700BF3DEF /* CharacterView */,
-				A51540652D53259F00BF3DEF /* FoodView */,
+				A51540632D53259F00BF3DEF /* FoodView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -182,18 +173,11 @@
 			path = "new-eat-app";
 			sourceTree = "<group>";
 		};
-		A51540732D53261700BF3DEF /* CharacterView */ = {
-			isa = PBXGroup;
-			children = (
-				A515405B2D53259F00BF3DEF /* CharacterView.swift */,
-			);
-			path = CharacterView;
-			sourceTree = "<group>";
-		};
 		A51540842D53387100BF3DEF /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				A51540832D53387100BF3DEF /* UserViewModel.swift */,
+				A51540642D53259F00BF3DEF /* FoodViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
