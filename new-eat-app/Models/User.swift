@@ -9,5 +9,6 @@ import Foundation
 
 struct User {
     var currentHabit: Habit
+    var currentCharacters: [Character]
     var journalEntries: [Entry] = []
 }

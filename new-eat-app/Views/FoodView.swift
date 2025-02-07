@@ -8,7 +8,12 @@
 import SwiftUI
 
 struct FoodView: View {
+    @Environment(\.scenePhase) private var scenePhase
     @Bindable var viewModel: UserViewModel
+    
+    // MARK: UNDERSTAND LOL
+    @AppStorage("currentDay") var currentDay: Int = 1
+    @AppStorage("lastDate") var lastDate: Double = 0
     
     var pinnedEntry: Entry = Entry(type: "reminder", title: "Pin a reminder in your journal!", body: "placeholder body")
     
@@ -19,12 +24,13 @@ struct FoodView: View {
                 header
                 pinnedEntryNotification
                 Spacer()
-                LazyVGrid(columns: [GridItem(), GridItem()]) {
-                    ForEach(0..<viewModel.user.currentHabit.totalGoalCount) { _ in
-                        // MARK: FIND A WAY TO UPDATE DAILY HABIT PROGRESS WITHOUT THE BINDING CHAOS LOL (or at least understand the chaos if you use binding)
-                        Character(named: "orangeguy", viewModel: viewModel)
-                    }
-                }.padding(.bottom, 10)
+                manyCharacters
+                Button {
+                    lastDate = Date.now.addingTimeInterval(87000).timeIntervalSince1970
+                    print("\(lastDate)")
+                } label: {
+                    Text("jump to tomorrow!")
+                }
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background {
                     Color.yellow
@@ -47,6 +53,35 @@ struct FoodView: View {
             }
             .tag(1)
         }.tint(.black)
+            .onChange(of: scenePhase) { newPhase in
+                if newPhase == .active {
+                    checkForNewDay()
+                }
+            }
+    }
+    
+    var manyCharacters: some View {
+        LazyVGrid(columns: [GridItem(), GridItem()]) {
+            ForEach($viewModel.user.currentCharacters, id: \.self) { $character in
+                CharacterView(lastDate: $lastDate, character: $character, viewModel: viewModel)
+            }
+        }.padding(.bottom, 10)
+    }
+    
+    private func checkForNewDay() {
+        print("checked!")
+            let savedDate = Date(timeIntervalSince1970: lastDate)
+            if !Calendar.current.isDateInToday(savedDate) {
+                resetForNewDay()
+            }
+        }
+
+    private func resetForNewDay() {
+        print("reset!")
+        viewModel.resetGoalCount()
+        viewModel.resetCharacters()
+        currentDay += 1 // MARK: what is this var even for lmao
+        lastDate = Date().timeIntervalSince1970
     }
     
     var header: some View {
