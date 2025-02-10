@@ -27,4 +27,12 @@ import Observation
     func incrementGoalCount() {
         user.currentHabit.completedGoalCount += 1
     }
+    
+    func incrementDayCount() {
+        user.currentHabit.completedDays += 1
+    }
+    
+    func resetGoalCount() {
+        user.currentHabit.completedGoalCount = 0
+    }
 }

@@ -10,6 +10,10 @@ import SwiftUI
 struct FoodView: View {
     @Bindable var viewModel: UserViewModel
     
+    // MARK: UNDERSTAND LOL
+    @AppStorage("currentDay") private var currentDay: Int = 1
+    @AppStorage("lastDate") private var lastDate: Double = 0
+    
     var pinnedEntry: Entry = Entry(type: "reminder", title: "Pin a reminder in your journal!", body: "placeholder body")
     
     var body: some View {
@@ -21,7 +25,6 @@ struct FoodView: View {
                 Spacer()
                 LazyVGrid(columns: [GridItem(), GridItem()]) {
                     ForEach(0..<viewModel.user.currentHabit.totalGoalCount) { _ in
-                        // MARK: FIND A WAY TO UPDATE DAILY HABIT PROGRESS WITHOUT THE BINDING CHAOS LOL (or at least understand the chaos if you use binding)
                         Character(named: "orangeguy", viewModel: viewModel)
                     }
                 }.padding(.bottom, 10)
@@ -47,6 +50,22 @@ struct FoodView: View {
             }
             .tag(1)
         }.tint(.black)
+            .onAppear {
+                checkForNewDay()
+            }
+    }
+    
+    private func checkForNewDay() {
+            let savedDate = Date(timeIntervalSince1970: lastDate)
+            if !Calendar.current.isDateInToday(savedDate) {
+                resetForNewDay()
+            }
+        }
+
+    private func resetForNewDay() {
+        viewModel.resetGoalCount()
+        currentDay += 1 // MARK: what is this var even for lmao
+        lastDate = Date().timeIntervalSince1970
     }
     
     var header: some View {

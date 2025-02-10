@@ -10,6 +10,8 @@ import SwiftUI
 struct Character: View {
     var named: String
     @State private var isShown: Bool = true
+    @AppStorage("currentDay") private var currentDay: Int = 1
+    @AppStorage("lastDate") private var lastDate: Double = 0
     var viewModel: UserViewModel
     
     var body: some View {
@@ -24,6 +26,10 @@ struct Character: View {
                 if isShown {
                     viewModel.incrementGoalCount()
                     isShown = false
+                    if viewModel.user.currentHabit.completedGoalCount == viewModel.user.currentHabit.totalGoalCount {
+                        lastDate = Date().timeIntervalSince1970
+                        viewModel.incrementDayCount()
+                    }
                 }
             }
     }
